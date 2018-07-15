@@ -19,8 +19,8 @@ $(document).ready(function(){
 		$.ajax({
 			url:"https://cors-anywhere.herokuapp.com/http://cep.republicavirtual.com.br/web_cep.php",
 			type:"POST",
-			beforeSend: function(request) {
-				request.setRequestHeader("origin", 'x-requested-with');
+			headers: {
+				'origin':'x-requested-with'
 			},
 			data: "cep=91010000&formato=json",
 			dataType: 'json',
