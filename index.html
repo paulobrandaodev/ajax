@@ -17,12 +17,18 @@ $(document).ready(function(){
 	 $(document).on('click', '.botao', function(){ 
 
 		$.ajax({
-			url:"//cep.republicavirtual.com.br/web_cep.php",
+			url:"https://cors-anywhere.herokuapp.com/http://cep.republicavirtual.com.br/web_cep.php",
 			type:"POST",
+			beforeSend: function(request) {
+				request.setRequestHeader("origin", 'x-requested-with');
+			},
 			data: "cep=91010000&formato=json",
 			dataType: 'json',
 			success: function (data){
 				console.log(data);
+			},
+			error: function (erro){
+				console.log(erro);
 			}
 		})
 		return false;				 
