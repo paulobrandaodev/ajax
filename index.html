@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sem título</title>
+</head>
+
+<body>
+	
+
+<button class="botao">Click</button>	
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+				
+	 $(document).on('click', '.botao', function(){ 
+
+		$.ajax({
+			url:"http://cep.republicavirtual.com.br/web_cep.php",
+			type:"POST",
+			data: "cep=91010000&formato=json",
+			dataType: 'json',
+			success: function (data){
+				console.log(data);
+			}
+		})
+		return false;				 
+
+	 })	
+});
+</script>	
+	
+	
+</body>
+</html>
